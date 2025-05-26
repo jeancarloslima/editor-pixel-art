@@ -1,0 +1,23 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100dvh;
+}
+
+.tabela {
+    width: 500px;
+    height: 500px;
+    border: 2px solid #000;
+}
+
+.elemento-tabela {
+    width: 10px;
+    height: 10px;
+    cursor: pointer;
+    border: 1px solid #000;
+}
+
+.preenchido {
+    background-color: #000;
+}
