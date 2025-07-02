@@ -1,3 +1,54 @@
+:root {
+    /* Cores */
+    --cor-primaria: #FFF;
+    --cor-secundaria: #000;
+    --cor-terciaria: #e7e4e4;
+    /* Fontes */
+    --fonte-primaria: ;
+    /* Configs */
+    font-size: 16px;
+}
+
+html {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--fonte-primaria);
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: clamp(280px, 80vw, 800px);
+    height: 50px;
+    position: fixed;
+    top: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 1px solid var(--cor-terciaria);
+    border-radius: 16px;
+    background-color: var(--cor-terciaria);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+}
+
+#cor-principal-picker,
+#cor-secundaria-picker {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+#cor-principal-picker {
+    background-color: var(--cor-secundaria);
+}
+
+#cor-secundaria-picker {
+    background-color: var(--cor-primaria);
+}
+
 .container {
     display: flex;
     justify-content: center;
@@ -8,16 +59,16 @@
 .tabela {
     width: 500px;
     height: 500px;
-    border: 2px solid #000;
+    border: 2px solid var(--cor-secundaria);
 }
 
 .elemento-tabela {
     width: 10px;
     height: 10px;
     cursor: pointer;
-    border: 1px solid #000;
+    border: 1px solid var(--cor-secundaria);
 }
 
 .preenchido {
-    background-color: #000;
+    background-color: var(--cor-secundaria);
 }
