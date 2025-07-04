@@ -2,8 +2,8 @@
 
 :root {
     /* Cores */
-    --cor-primaria: #e0e1dd;
-    --cor-secundaria: #0d1b2a;
+    --cor-primaria: #0d1b2a;
+    --cor-secundaria: #FFF;
     --cor-terciaria: #e5e5e5;
     --cor-quarta: #0496ff;
     --cor-quinta: #d90429;
@@ -19,6 +19,7 @@ html {
 
 body {
     font-family: var(--fonte-primaria);
+    background-color: var(--cor-secundaria);
 }
 
 .menu {
@@ -47,11 +48,11 @@ body {
 }
 
 #cor-principal-picker {
-    background-color: var(--cor-secundaria);
+    background-color: var(--cor-primaria);
 }
 
 #cor-secundaria-picker {
-    background-color: var(--cor-primaria);
+    background-color: var(--cor-secundaria);
 }
 
 #cor-picker {
@@ -75,7 +76,7 @@ body {
     justify-content: center;
     width: 30px;
     height: 30px;
-    border: 2px solid var(--cor-secundaria);
+    border: 2px solid var(--cor-primaria);
     cursor: pointer;
 }
 
@@ -84,7 +85,7 @@ body {
 }
 
 #tamanho-lapis-seletor ul li span {
-    background-color: var(--cor-secundaria);
+    background-color: var(--cor-primaria);
 }
 
 #tamanho-lapis-1 span {
@@ -157,18 +158,14 @@ body {
 .tabela {
     width: 500px;
     height: 500px;
-    border: 2px solid var(--cor-secundaria);
+    border: 2px solid var(--cor-primaria);
 }
 
 .elemento-tabela {
     width: 10px;
     height: 10px;
     cursor: pointer;
-    border: 1px solid var(--cor-secundaria);
-}
-
-.preenchido {
-    background-color: var(--cor-secundaria);
+    border: 1px solid var(--cor-primaria);
 }
 
 @media (max-width: 850px) {
