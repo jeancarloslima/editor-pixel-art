@@ -1,173 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Criador Pixel Art</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
 </head>
+
 <body>
 
-    <section class="menu">
-        <div id="cor-principal-picker"></div>
-        <div id="cor-secundaria-picker"></div>
-        <div id="cor-picker">
-            <i class="fa-solid fa-eye-dropper"></i>
-        </div>
-        <div id="tamanho-lapis-seletor">
-            <ul id="lista-tamanhos-lapis">
-                <li id="tamanho-lapis-1" class="selecionado">
-                    <span></span>
-                </li>
-                <li id="tamanho-lapis-2">
-                    <span></span>
-                </li>
-                <li id="tamanho-lapis-3">
-                    <span></span>
-                </li>
-                <li id="tamanho-lapis-4">
-                    <span></span>
-                </li>
-            </ul>
-        </div>
-        <div id="size-opcao" class="desativado">
-            Size
-        </div>
-        <div id="grid-opcao" class="ativado">
-            Grid
-        </div>
-        <div id="clear-opcao">
-            Clear
-        </div>
-    </section>
+
 
     <div class="container">
-        <table class="tabela">
-            <tr class="linha-tabela">
-                <td class="elemento-tabela"></td>
-                <td class="elemento-tabela"></td>
-                <td class="elemento-tabela"></td>
-                <td class="elemento-tabela"></td>
-                <td class="elemento-tabela"></td>
-                <td class="elemento-tabela"></td>
-                <td class="elemento-tabela"></td>
-                <td class="elemento-tabela"></td>
-                <td class="elemento-tabela"></td>
-                <td class="elemento-tabela"></td>
-            </tr>
-            <tr class="linha-tabela">
-                <td class="elemento-tabela"></td>
-                <td class="elemento-tabela"></td>
-                <td class="elemento-tabela"></td>
-                <td class="elemento-tabela"></td>
-                <td class="elemento-tabela"></td>
-                <td class="elemento-tabela"></td>
-                <td class="elemento-tabela"></td>
-                <td class="elemento-tabela"></td>
-                <td class="elemento-tabela"></td>
-                <td class="elemento-tabela"></td>
-            </tr>
-            <tr class="linha-tabela">
-                <td class="elemento-tabela"></td>
-                <td class="elemento-tabela"></td>
-                <td class="elemento-tabela"></td>
-                <td class="elemento-tabela"></td>
-                <td class="elemento-tabela"></td>
-                <td class="elemento-tabela"></td>
-                <td class="elemento-tabela"></td>
-                <td class="elemento-tabela"></td>
-                <td class="elemento-tabela"></td>
-                <td class="elemento-tabela"></td>
-            </tr>
-            <tr class="linha-tabela">
-                <td class="elemento-tabela"></td>
-                <td class="elemento-tabela"></td>
-                <td class="elemento-tabela"></td>
-                <td class="elemento-tabela"></td>
-                <td class="elemento-tabela"></td>
-                <td class="elemento-tabela"></td>
-                <td class="elemento-tabela"></td>
-                <td class="elemento-tabela"></td>
-                <td class="elemento-tabela"></td>
-                <td class="elemento-tabela"></td>
-            </tr>
-            <tr class="linha-tabela">
-                <td class="elemento-tabela"></td>
-                <td class="elemento-tabela"></td>
-                <td class="elemento-tabela"></td>
-                <td class="elemento-tabela"></td>
-                <td class="elemento-tabela"></td>
-                <td class="elemento-tabela"></td>
-                <td class="elemento-tabela"></td>
-                <td class="elemento-tabela"></td>
-                <td class="elemento-tabela"></td>
-                <td class="elemento-tabela"></td>
-            </tr>
-            <tr class="linha-tabela">
-                <td class="elemento-tabela"></td>
-                <td class="elemento-tabela"></td>
-                <td class="elemento-tabela"></td>
-                <td class="elemento-tabela"></td>
-                <td class="elemento-tabela"></td>
-                <td class="elemento-tabela"></td>
-                <td class="elemento-tabela"></td>
-                <td class="elemento-tabela"></td>
-                <td class="elemento-tabela"></td>
-                <td class="elemento-tabela"></td>
-            </tr>
-            <tr class="linha-tabela">
-                <td class="elemento-tabela"></td>
-                <td class="elemento-tabela"></td>
-                <td class="elemento-tabela"></td>
-                <td class="elemento-tabela"></td>
-                <td class="elemento-tabela"></td>
-                <td class="elemento-tabela"></td>
-                <td class="elemento-tabela"></td>
-                <td class="elemento-tabela"></td>
-                <td class="elemento-tabela"></td>
-                <td class="elemento-tabela"></td>
-            </tr>
-            <tr class="linha-tabela">
-                <td class="elemento-tabela"></td>
-                <td class="elemento-tabela"></td>
-                <td class="elemento-tabela"></td>
-                <td class="elemento-tabela"></td>
-                <td class="elemento-tabela"></td>
-                <td class="elemento-tabela"></td>
-                <td class="elemento-tabela"></td>
-                <td class="elemento-tabela"></td>
-                <td class="elemento-tabela"></td>
-                <td class="elemento-tabela"></td>
-            </tr>
-            <tr class="linha-tabela">
-                <td class="elemento-tabela"></td>
-                <td class="elemento-tabela"></td>
-                <td class="elemento-tabela"></td>
-                <td class="elemento-tabela"></td>
-                <td class="elemento-tabela"></td>
-                <td class="elemento-tabela"></td>
-                <td class="elemento-tabela"></td>
-                <td class="elemento-tabela"></td>
-                <td class="elemento-tabela"></td>
-                <td class="elemento-tabela"></td>
-            </tr>
-            <tr class="linha-tabela">
-                <td class="elemento-tabela"></td>
-                <td class="elemento-tabela"></td>
-                <td class="elemento-tabela"></td>
-                <td class="elemento-tabela"></td>
-                <td class="elemento-tabela"></td>
-                <td class="elemento-tabela"></td>
-                <td class="elemento-tabela"></td>
-                <td class="elemento-tabela"></td>
-                <td class="elemento-tabela"></td>
-                <td class="elemento-tabela"></td>
-            </tr>
+        <section class="menu">
+            <div id="cor-principal-picker"></div>
+            <div id="cor-secundaria-picker"></div>
+            <div id="cor-picker">
+                <i class="fa-solid fa-eye-dropper"></i>
+            </div>
+            <div id="tamanho-lapis-seletor">
+                <ul id="lista-tamanhos-lapis">
+                    <li id="tamanho-lapis-1" class="selecionado">
+                        <span></span>
+                    </li>
+                    <li id="tamanho-lapis-2">
+                        <span></span>
+                    </li>
+                    <li id="tamanho-lapis-3">
+                        <span></span>
+                    </li>
+                    <li id="tamanho-lapis-4">
+                        <span></span>
+                    </li>
+                </ul>
+            </div>
+            <div id="size-opcao" class="desativado">
+                Size
+                <div id="size-opcao-menu">
+                    <input type="number" name="size" id="size" placeholder="10">
+                </div>
+            </div>
+            <div id="grid-opcao" class="ativado">
+                Grid
+            </div>
+            <div id="clear-opcao">
+                Clear
+            </div>
+        </section>
+
+        <table id="tabela">
+            
         </table>
     </div>
-    
+
 </body>
+
 </html>

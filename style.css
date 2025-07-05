@@ -28,10 +28,7 @@ body {
     justify-content: space-evenly;
     width: clamp(280px, 90vw, 800px);
     height: 50px;
-    position: fixed;
-    top: 100px;
-    left: 50%;
-    transform: translateX(-50%);
+    margin: 2rem auto 0;
     border: 1px solid var(--cor-terciaria);
     border-radius: 16px;
     background-color: var(--cor-terciaria);
@@ -118,12 +115,63 @@ body {
     font-weight: 600;
     border: 1px solid var(--cor-quarta);
     border-radius: 8px;
+    position: relative;
     cursor: pointer;
     transition: .3s ease-in-out;
 }
 
-#clear-opcao {
-    border-color: var(--cor-quinta);
+#size-opcao-menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    left: 50%;
+    top: 32px;
+    transform: translateX(-50%);
+    overflow: hidden;
+    transition: .3s;
+}
+
+#size-opcao.ativado #size-opcao-menu {
+    width: 300px;
+    height: 100px;
+    left: 50%;
+    top: 50px;
+    background-color: var(--cor-quarta);
+    color: var(--cor-secundaria);
+    border-radius: 16px;
+}
+
+#size-opcao::before {
+    content: '';
+    width: 0;
+    height: 0;
+    background-color: transparent;
+    border: 0px solid transparent;
+    position: absolute;
+    left: 50%;
+    top: 33px;
+    transform: translateX(-50%);
+    transition: .3s;
+}
+
+#size-opcao.ativado::before {
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 22px solid var(--cor-quarta);
+}
+
+#size {
+    width: 80%;
+    height: 30px;
+    border-color: transparent;
+    border-radius: 12px;
+    outline: none;
+    text-align: center;
+    font-family: var(--fonte-primaria);
+    font-size: 1.5rem;
 }
 
 #size-opcao.ativado,
@@ -140,6 +188,7 @@ body {
 
 #clear-opcao {
     background-color: var(--cor-terciaria);
+    border-color: var(--cor-quinta);
     color: var(--cor-quinta);
 }
 
@@ -152,13 +201,16 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+    gap: 2rem;
     min-height: 100dvh;
 }
 
-.tabela {
-    width: 500px;
-    height: 500px;
+#tabela {
+    width: 700px;
+    height: 700px;
     border: 2px solid var(--cor-primaria);
+    margin-bottom: 2rem;
 }
 
 .elemento-tabela {

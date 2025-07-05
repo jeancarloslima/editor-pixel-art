@@ -1,9 +1,40 @@
-const botaoGridOpcao = document.getElementById("grid-opcao");
+const botaoSizeOpcao = document.getElementById("size-opcao");
 const tamanhosLapis = document.querySelectorAll("#lista-tamanhos-lapis li");
+const botaoGridOpcao = document.getElementById("grid-opcao");
 const botaoClearOpcao = document.getElementById("clear-opcao");
-const elementosTabela = document.querySelectorAll(".elemento-tabela");
+let elementosTabela;
 let corPrimaria = "#0d1b2a";
 let corSecundaria = "#FFF";
+
+function criaTela(tamanho) {
+    const tabela = document.getElementById("tabela");
+    let conteudoHtml = "";
+
+    for (let i = 0; i < tamanho; i++) {
+        let linha = '<tr class="linha-tabela">'
+
+        for (let j = 0; j < tamanho; j++) {
+            linha += "\n" + '<td class="elemento-tabela"></td>';
+        }
+        
+        conteudoHtml += linha + "</tr>";
+    }
+
+    tabela.innerHTML = conteudoHtml;
+}
+
+criaTela(10);
+elementosTabela = document.querySelectorAll(".elemento-tabela");
+
+botaoSizeOpcao.addEventListener("click", () => {
+    if (botaoSizeOpcao.classList.contains("desativado")) {
+        botaoSizeOpcao.classList.remove("desativado");
+        botaoSizeOpcao.classList.add("ativado");
+    } else {
+        botaoSizeOpcao.classList.remove("ativado");
+        botaoSizeOpcao.classList.add("desativado");
+    }
+})
 
 botaoGridOpcao.addEventListener("click", () => {
     if (botaoGridOpcao.classList.contains("ativado")) {
