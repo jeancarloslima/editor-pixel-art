@@ -1,7 +1,9 @@
-const botaoSizeOpcao = document.getElementById("size-opcao");
+const botaoSizeOpcao = document.getElementById("size-opcao-botao");
+const campoTamanhoTabela = document.getElementById("size");
+const botaoAplicarTamanho = document.getElementById("aplicarTamanho");
 const tamanhosLapis = document.querySelectorAll("#lista-tamanhos-lapis li");
-const botaoGridOpcao = document.getElementById("grid-opcao");
-const botaoClearOpcao = document.getElementById("clear-opcao");
+const botaoGridOpcao = document.getElementById("grid-opcao-botao");
+const botaoClearOpcao = document.getElementById("clear-opcao-botao");
 let elementosTabela;
 let corPrimaria = "#0d1b2a";
 let corSecundaria = "#FFF";
@@ -21,10 +23,16 @@ function criaTela(tamanho) {
     }
 
     tabela.innerHTML = conteudoHtml;
+    elementosTabela = document.querySelectorAll(".elemento-tabela");
+    adicionaPintura();
+
+    if (botaoGridOpcao.classList.contains("desativado")) {
+        botaoGridOpcao.click();
+        botaoGridOpcao.click();
+    };
 }
 
 criaTela(10);
-elementosTabela = document.querySelectorAll(".elemento-tabela");
 
 botaoSizeOpcao.addEventListener("click", () => {
     if (botaoSizeOpcao.classList.contains("desativado")) {
@@ -34,7 +42,15 @@ botaoSizeOpcao.addEventListener("click", () => {
         botaoSizeOpcao.classList.remove("ativado");
         botaoSizeOpcao.classList.add("desativado");
     }
-})
+});
+
+botaoAplicarTamanho.addEventListener("click", (e) => {
+    e.preventDefault();
+    
+    if (campoTamanhoTabela.value !== "") {
+        criaTela(Math.floor(Number(campoTamanhoTabela.value)));
+    };
+});
 
 botaoGridOpcao.addEventListener("click", () => {
     if (botaoGridOpcao.classList.contains("ativado")) {
@@ -80,7 +96,8 @@ function preencherSecundario(elemento) {
     elemento.style.backgroundColor = corSecundaria;
 }
 
-elementosTabela.forEach(elemento => {
+function adicionaPintura() {
+    elementosTabela.forEach(elemento => {
     elemento.addEventListener('mousedown', function (e) {
         e.preventDefault();
 
@@ -101,3 +118,5 @@ elementosTabela.forEach(elemento => {
 
     elemento.addEventListener('contextmenu', e => e.preventDefault());
 });
+}
+

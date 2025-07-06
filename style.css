@@ -105,25 +105,30 @@ body {
     height: 26px;
 }
 
-#size-opcao,
-#grid-opcao,
-#clear-opcao {
+#size-opcao {
+    position: relative;
+}
+
+#size-opcao-botao,
+#grid-opcao-botao,
+#clear-opcao-botao {
     width: 60px;
     height: 30px;
-    text-align: center;
-    line-height: 30px;
+    font-family: var(--fonte-primaria);
     font-weight: 600;
     border: 1px solid var(--cor-quarta);
     border-radius: 8px;
-    position: relative;
     cursor: pointer;
+    position: relative;
     transition: .3s ease-in-out;
 }
 
 #size-opcao-menu {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 1rem;
     width: 0px;
     height: 0px;
     position: absolute;
@@ -134,7 +139,7 @@ body {
     transition: .3s;
 }
 
-#size-opcao.ativado #size-opcao-menu {
+#size-opcao-botao.ativado + #size-opcao-menu {
     width: 300px;
     height: 100px;
     left: 50%;
@@ -144,7 +149,7 @@ body {
     border-radius: 16px;
 }
 
-#size-opcao::before {
+#size-opcao-botao::before {
     content: '';
     width: 0;
     height: 0;
@@ -157,7 +162,7 @@ body {
     transition: .3s;
 }
 
-#size-opcao.ativado::before {
+#size-opcao-botao.ativado::before {
     border-left: 15px solid transparent;
     border-right: 15px solid transparent;
     border-bottom: 22px solid var(--cor-quarta);
@@ -174,25 +179,43 @@ body {
     font-size: 1.5rem;
 }
 
-#size-opcao.ativado,
-#grid-opcao.ativado {
+#aplicarTamanho {
+    width: 50%;
+    height: 25px;
+    font-family: var(--fonte-primaria);
+    font-size: .9rem;
+    font-weight: 600;
+    background-color: var(--cor-secundaria);
+    border: 1px solid var(--cor-secundaria);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+#aplicarTamanho:hover {
+    background-color: var(--cor-quarta);
+    color: var(--cor-secundaria);
+}
+
+#size-opcao-botao.ativado,
+#grid-opcao-botao.ativado {
     background-color: var(--cor-quarta);
     color: var(--cor-terciaria);
 }
 
-#size-opcao.desativado,
-#grid-opcao.desativado {
+#size-opcao-botao.desativado,
+#grid-opcao-botao.desativado {
     background-color: var(--cor-terciaria);
     color: var(--cor-quarta);
 }
 
-#clear-opcao {
+#clear-opcao-botao {
     background-color: var(--cor-terciaria);
     border-color: var(--cor-quinta);
     color: var(--cor-quinta);
 }
 
-#clear-opcao:hover {
+#clear-opcao-botao:hover {
     background-color: var(--cor-quinta);
     color: var(--cor-terciaria);
 }
@@ -265,9 +288,9 @@ body {
         height: 16px;
     }
 
-    #size-opcao,
-    #grid-opcao,
-    #clear-opcao {
+    #size-opcao-botao,
+    #grid-opcao-botao,
+    #clear-opcao-botao {
         width: 40px;
         height: 20px;
         line-height: 20px;
