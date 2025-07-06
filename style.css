@@ -46,15 +46,6 @@ body {
     overflow: hidden;
 }
 
-#cor-picker {
-    font-size: 20px;
-    cursor: pointer;
-}
-
-#cor-picker:hover {
-    color: var(--cor-quarta);
-    transition: .3s;
-}
 
 #alterarCorPrincipal,
 #alterarCorSecundaria {
