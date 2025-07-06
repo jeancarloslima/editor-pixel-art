@@ -41,15 +41,9 @@ body {
     height: 30px;
     border-radius: 50%;
     cursor: pointer;
-    border: 2px solid var(--cor-quarta);
-}
-
-#cor-principal-picker {
-    background-color: var(--cor-primaria);
-}
-
-#cor-secundaria-picker {
-    background-color: var(--cor-secundaria);
+    border: 1px solid var(--cor-quarta);
+    position: relative;
+    overflow: hidden;
 }
 
 #cor-picker {
@@ -60,6 +54,18 @@ body {
 #cor-picker:hover {
     color: var(--cor-quarta);
     transition: .3s;
+}
+
+#alterarCorPrincipal,
+#alterarCorSecundaria {
+    width: 78px;
+    height: 100px;
+    padding: 0;
+    border-radius: 50%;
+    cursor: pointer;
+    position: absolute;
+    top: -7px;
+    left: -20px;
 }
 
 #lista-tamanhos-lapis {

@@ -1,3 +1,4 @@
+const botoesTrocarCor = document.querySelectorAll("input[type='color']");
 const botaoSizeOpcao = document.getElementById("size-opcao-botao");
 const campoTamanhoTabela = document.getElementById("size");
 const botaoAplicarTamanho = document.getElementById("aplicarTamanho");
@@ -18,7 +19,7 @@ function criaTela(tamanho) {
         for (let j = 0; j < tamanho; j++) {
             linha += "\n" + '<td class="elemento-tabela"></td>';
         }
-        
+
         conteudoHtml += linha + "</tr>";
     }
 
@@ -34,6 +35,16 @@ function criaTela(tamanho) {
 
 criaTela(10);
 
+botoesTrocarCor.forEach((botao) => {
+    botao.addEventListener("input", () => {
+        if (botao.id === "alterarCorPrincipal") {
+            corPrimaria = botao.value;
+        } else {
+            corSecundaria = botao.value;
+        }
+    })
+})
+
 botaoSizeOpcao.addEventListener("click", () => {
     if (botaoSizeOpcao.classList.contains("desativado")) {
         botaoSizeOpcao.classList.remove("desativado");
@@ -46,7 +57,7 @@ botaoSizeOpcao.addEventListener("click", () => {
 
 botaoAplicarTamanho.addEventListener("click", (e) => {
     e.preventDefault();
-    
+
     if (campoTamanhoTabela.value !== "") {
         criaTela(Math.floor(Number(campoTamanhoTabela.value)));
     };
@@ -65,8 +76,8 @@ botaoGridOpcao.addEventListener("click", () => {
         botaoGridOpcao.classList.add("ativado");
 
         elementosTabela.forEach((elemento) => {
-        elemento.style.borderColor = "var(--cor-primaria)";
-    })
+            elemento.style.borderColor = "var(--cor-primaria)";
+        })
     }
 });
 
@@ -77,7 +88,7 @@ tamanhosLapis.forEach((lapis) => {
         }
 
         lapis.classList.add("selecionado");
-    }) 
+    })
 })
 
 botaoClearOpcao.addEventListener("click", () => {
@@ -98,25 +109,25 @@ function preencherSecundario(elemento) {
 
 function adicionaPintura() {
     elementosTabela.forEach(elemento => {
-    elemento.addEventListener('mousedown', function (e) {
-        e.preventDefault();
+        elemento.addEventListener('mousedown', function (e) {
+            e.preventDefault();
 
-        if (e.button === 0) {
-            preencherPrimario(this);
-        } else if (e.button === 2) {
-            preencherSecundario(this);
-        }
+            if (e.button === 0) {
+                preencherPrimario(this);
+            } else if (e.button === 2) {
+                preencherSecundario(this);
+            }
+        });
+
+        elemento.addEventListener('mouseover', function (e) {
+            if (e.buttons === 1) {
+                preencherPrimario(this);
+            } else if (e.buttons === 2) {
+                preencherSecundario(this);
+            }
+        });
+
+        elemento.addEventListener('contextmenu', e => e.preventDefault());
     });
-
-    elemento.addEventListener('mouseover', function (e) {
-        if (e.buttons === 1) {
-            preencherPrimario(this);
-        } else if (e.buttons === 2) {
-            preencherSecundario(this);
-        }
-    });
-
-    elemento.addEventListener('contextmenu', e => e.preventDefault());
-});
 }
 
