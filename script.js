@@ -8,6 +8,7 @@ const botaoClearOpcao = document.getElementById("clear-opcao-botao");
 let elementosTabela;
 let corPrimaria = "#0d1b2a";
 let corSecundaria = "#FFF";
+let tamanhoLapis = 1;
 
 function criaTela(tamanho) {
     const tabela = document.getElementById("tabela");
@@ -17,7 +18,7 @@ function criaTela(tamanho) {
         let linha = '<tr class="linha-tabela">'
 
         for (let j = 0; j < tamanho; j++) {
-            linha += "\n" + '<td class="elemento-tabela"></td>';
+            linha += "\n" + `<td class="elemento-tabela coluna${j + 1}"></td>`;
         }
 
         conteudoHtml += linha + "</tr>";
@@ -88,6 +89,8 @@ tamanhosLapis.forEach((lapis) => {
         }
 
         lapis.classList.add("selecionado");
+
+        tamanhoLapis = Number(lapis.id[14]);
     })
 })
 
@@ -101,10 +104,14 @@ botaoClearOpcao.addEventListener("click", () => {
 
 function preencherPrimario(elemento) {
     elemento.style.backgroundColor = corPrimaria;
+
+    adicionaPinturaCasasAdjacentes(elemento, corPrimaria);
 }
 
 function preencherSecundario(elemento) {
     elemento.style.backgroundColor = corSecundaria;
+
+    adicionaPinturaCasasAdjacentes(elemento, corSecundaria);
 }
 
 function adicionaPintura() {
@@ -131,3 +138,26 @@ function adicionaPintura() {
     });
 }
 
+function adicionaPinturaCasasAdjacentes(elemento, cor) {
+    if (tamanhoLapis === 2) {
+        const quadrado2 = elemento.previousElementSibling;
+        const linhaAnterior = elemento.closest("tr").previousElementSibling;
+        let quadrados = [quadrado2];
+        
+        if (linhaAnterior !== null) {
+            const quadrado3 = linhaAnterior.querySelector(`.${elemento.classList[1]}`);
+            const quadrado4 = quadrado3.previousElementSibling;
+            quadrados = [quadrado2, quadrado3, quadrado4];
+        }
+
+        quadrados.forEach((quadrado) => {
+            if (quadrado) {
+                quadrado.style.backgroundColor = cor;
+            }
+        });
+    } else if (tamanhoLapis === 3) {
+
+    } else if (tamanhoLapis === 4) {
+
+    }
+}
