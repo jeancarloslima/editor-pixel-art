@@ -182,6 +182,63 @@ function adicionaPinturaCasasAdjacentes(elemento, cor) {
             }
         });
     } else if (tamanhoLapis === 4) {
+        const quadrado2 = elemento.previousElementSibling;
+        const quadrado4 = elemento.nextElementSibling;
+        const linhaAnterior = elemento.closest("tr").previousElementSibling;
+        const linhaPosterior = elemento.closest("tr").nextElementSibling;
+        let linhaAnterior2 = null;
+        
+        let quadrados = [quadrado2, quadrado4];
+        
+        if (quadrado2) {
+            const quadrado3 = quadrado2.previousElementSibling;
+            quadrados.push(quadrado3);
+        }
 
+        if (linhaAnterior) {
+            linhaAnterior2 = linhaAnterior.previousElementSibling;
+        }
+
+        if (linhaAnterior !== null) {
+            const quadrado5 = linhaAnterior.querySelector(`.${elemento.classList[1]}`);
+            const quadrado6 = quadrado5.previousElementSibling;
+            const quadrado8 = quadrado5.nextElementSibling;
+            quadrados.push(quadrado5, quadrado6, quadrado8);
+
+            if (quadrado6) {
+                const quadrado7 = quadrado6.previousElementSibling;
+                quadrados.push(quadrado7);
+            }
+        }
+
+        if (linhaAnterior2 !== null) {
+            const quadrado9 = linhaAnterior2.querySelector(`.${elemento.classList[1]}`);
+            const quadrado10 = quadrado9.previousElementSibling;
+            const quadrado12 = quadrado9.nextElementSibling;
+            quadrados.push(quadrado9, quadrado10, quadrado12);
+
+            if (quadrado10) {
+                const quadrado11 = quadrado10.previousElementSibling;
+                quadrados.push(quadrado11);
+            }
+        }
+
+        if (linhaPosterior !== null) {
+            const quadrado13 = linhaPosterior.querySelector(`.${elemento.classList[1]}`);
+            const quadrado14 = quadrado13.previousElementSibling;
+            const quadrado16 = quadrado13.nextElementSibling;
+            quadrados.push(quadrado13, quadrado14, quadrado16);
+
+            if (quadrado14) {
+                const quadrado15 = quadrado14.previousElementSibling;
+                quadrados.push(quadrado15);
+            }
+        }
+
+        quadrados.forEach((quadrado) => {
+            if (quadrado) {
+                quadrado.style.backgroundColor = cor;
+            }
+        });
     }
 }
