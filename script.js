@@ -147,7 +147,7 @@ function adicionaPinturaCasasAdjacentes(elemento, cor) {
         if (linhaAnterior !== null) {
             const quadrado3 = linhaAnterior.querySelector(`.${elemento.classList[1]}`);
             const quadrado4 = quadrado3.previousElementSibling;
-            quadrados = [quadrado2, quadrado3, quadrado4];
+            quadrados.push(quadrado3, quadrado4);
         }
 
         quadrados.forEach((quadrado) => {
@@ -156,7 +156,31 @@ function adicionaPinturaCasasAdjacentes(elemento, cor) {
             }
         });
     } else if (tamanhoLapis === 3) {
+        const quadrado2 = elemento.previousElementSibling;
+        const quadrado3 = elemento.nextElementSibling;
+        const linhaAnterior = elemento.closest("tr").previousElementSibling;
+        const linhaPosterior = elemento.closest("tr").nextElementSibling;
+        let quadrados = [quadrado2, quadrado3];
+        
+        if (linhaAnterior !== null) {
+            const quadrado4 = linhaAnterior.querySelector(`.${elemento.classList[1]}`);
+            const quadrado5 = quadrado4.previousElementSibling;
+            const quadrado6 = quadrado4.nextElementSibling;
+            quadrados.push(quadrado4, quadrado5, quadrado6);
+        }
 
+        if (linhaPosterior !== null) {
+            const quadrado7 = linhaPosterior.querySelector(`.${elemento.classList[1]}`);
+            const quadrado8 = quadrado7.previousElementSibling;
+            const quadrado9 = quadrado7.nextElementSibling;
+            quadrados.push(quadrado7, quadrado8, quadrado9);
+        }
+
+        quadrados.forEach((quadrado) => {
+            if (quadrado) {
+                quadrado.style.backgroundColor = cor;
+            }
+        });
     } else if (tamanhoLapis === 4) {
 
     }
